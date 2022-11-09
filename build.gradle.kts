@@ -32,6 +32,12 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Reaktive
+                implementation("com.badoo.reaktive:reaktive:1.2.2")
+                implementation("com.badoo.reaktive:reaktive-annotations:1.2.2")
+                implementation("com.badoo.reaktive:coroutines-interop:1.2.2") // For interop with coroutines
+                //implementation("com.badoo.reaktive:rxjava2-interop:1.2.2") // For interop with RxJava v2
+                //implementation("com.badoo.reaktive:rxjava3-interop:1.2.2") // For interop with RxJava v3
 
                 // Ktor
                 implementation("io.ktor:ktor-client-core:2.1.2")
@@ -39,9 +45,6 @@ kotlin {
 
                 // Coroutines
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-
-                // RxKotlin
-                //implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
 
                 // kotlinx.serialization
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
