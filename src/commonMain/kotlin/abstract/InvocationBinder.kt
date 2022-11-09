@@ -1,8 +1,8 @@
 package signalr.kt.abstract
 
-import java.lang.reflect.Type
+import kotlin.reflect.KType
 
 interface IInvocationBinder {
-    fun getReturnType(invocationId: String): Type
-    fun getParameterTypes(methodName: String): List<Type>
+    fun getReturnType(invocationId: String): KType
+    fun getParameterTypes(methodName: String): List<KType>
 }

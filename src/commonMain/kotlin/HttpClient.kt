@@ -1,11 +1,12 @@
 package signalr.kt
 
+import signalr.kt.abstract.ICloseable
 import signalr.kt.abstract.WebSocketWrapper
 import signalr.kt.enums.HttpMethod
 import signalr.kt.impls.HttpRequest
 import signalr.kt.impls.HttpResponse
 
-abstract class HttpClient {
+abstract class HttpClient : ICloseable {
 
     suspend fun get(url: String): HttpResponse = this.send(HttpRequest(HttpMethod.GET, url))
 
@@ -39,5 +40,4 @@ abstract class HttpClient {
     abstract suspend fun send(request: HttpRequest, body: ByteArray? = null): HttpResponse
     abstract fun createWebSocket(url: String, headers: Map<String, String>): WebSocketWrapper
     abstract fun cloneWithTimeOut(timeoutInMilliseconds: Int): HttpClient
-    abstract fun close()
 }
